@@ -1,0 +1,5 @@
+rootProject.name='DelegatedPreferences'
+include ':app'
+include ':delegatedprefs'
+include ':delegatedprefs-crypto'
+include ':delegatedprefs-moshi'
