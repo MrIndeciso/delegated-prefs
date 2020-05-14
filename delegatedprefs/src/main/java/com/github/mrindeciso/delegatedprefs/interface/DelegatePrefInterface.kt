@@ -6,4 +6,10 @@ interface DelegatePrefInterface {
 
     val preferences: SharedPreferences
 
+    companion object {
+
+        const val DEFAULT_PREFERENCE_NAME = "preferences"
+
+    }
+
 }

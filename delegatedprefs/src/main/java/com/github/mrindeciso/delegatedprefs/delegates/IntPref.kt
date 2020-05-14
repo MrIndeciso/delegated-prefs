@@ -4,9 +4,9 @@ import com.github.mrindeciso.delegatedprefs.`interface`.DelegatePrefInterface
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-class IntPreference(
-    private val key: String? = null,
-    private val defaultValue: Int = 0
+class IntPref(
+    private val defaultValue: Int = 0,
+    private val key: String? = null
 ) : ReadWriteProperty<DelegatePrefInterface, Int> {
 
     override fun getValue(thisRef: DelegatePrefInterface, property: KProperty<*>): Int {

@@ -1,15 +1,15 @@
 package com.github.mrindeciso.delegatedpreferences_demo
 
 import android.content.Context
-import com.github.mrindeciso.delegatedprefs.delegates.IntPreference
+import com.github.mrindeciso.delegatedprefs.delegates.IntPref
 import com.github.mrindeciso.delegatedprefs.impl.DelegatedPref
 
 class PreferenceClass(ctx: Context): DelegatedPref(ctx, "mainpreferences") {
 
-    var age: Int by IntPreference()
+    var age: Int by IntPref()
 
-    var customKey: Int by IntPreference(key = "customKey")
+    var customKey: Int by IntPref(key = "customKey")
 
-    var defaultHigh: Int by IntPreference(defaultValue = 23)
+    var defaultHigh: Int by IntPref(defaultValue = 23)
 
 }

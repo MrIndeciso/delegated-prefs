@@ -7,7 +7,8 @@ import com.github.mrindeciso.delegatedprefs.`interface`.DelegatePrefInterface
 open class DelegatedPref(private val ctx: Context, private val prefName: String): DelegatePrefInterface {
 
     override val preferences: SharedPreferences by lazy {
-        ctx.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        val name = prefName
+        ctx.getSharedPreferences(name, Context.MODE_PRIVATE)
     }
 
 }
