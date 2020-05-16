@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_bttbasic">Basic Demo</string>
+    <string name="home_bttcrypto">Crypto Demo</string>
+    <string name="home_bttflow">Flow Demo</string>
+    <string name="home_bttgson">Gson Demo</string>
+    <string name="home_bttlivedata">LiveData Demo</string>
+    <string name="home_bttmoshi">Moshi Demo</string>
+    <string name="home_bttui">UI Demo</string>
+</resources>

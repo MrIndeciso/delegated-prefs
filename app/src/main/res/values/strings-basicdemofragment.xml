@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="basicdemo_hint_int">Int</string>
+    <string name="basicdemo_hint_long">Long</string>
+    <string name="basicdemo_hint_float">Float</string>
+    <string name="basicdemo_hint_string">String</string>
+    <string name="basicdemo_hint_boolean">This switch represents a Boolean</string>
+    <string name="basicdemo_hint_stringset">String Set (use a comma as a separator)</string>
+    <string name="basicdemo_btt_openpreffile">Open Preference File</string>
+</resources>

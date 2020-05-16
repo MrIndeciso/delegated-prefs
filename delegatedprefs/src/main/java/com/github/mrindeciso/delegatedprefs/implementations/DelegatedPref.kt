@@ -17,8 +17,8 @@ open class DelegatedPref(
 ) : DelegatePrefInterface {
 
     override val preferences: SharedPreferences by lazy {
-        val name = prefName ?: DelegatePrefInterface.DEFAULT_PREFERENCE_NAME
-        ctx.getSharedPreferences(name, Context.MODE_PRIVATE)
+        val preferenceFileName = prefName ?: DelegatePrefInterface.DEFAULT_PREFERENCE_NAME
+        ctx.getSharedPreferences(preferenceFileName, Context.MODE_PRIVATE)
     }
 
 }

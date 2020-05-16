@@ -23,6 +23,14 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
 }
 
 dependencies {
@@ -34,8 +42,19 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-beta6"
 
+    def nav_version = "2.3.0-alpha06"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
     implementation project(':delegatedprefs')
+    implementation project(':delegatedprefs-crypto')
+    implementation project(':delegatedprefs-flow')
+    implementation project(':delegatedprefs-gson')
+    implementation project(':delegatedprefs-livedata')
+    implementation project(':delegatedprefs-moshi')
+    implementation project(':delegatedprefs-ui')
+
 }
