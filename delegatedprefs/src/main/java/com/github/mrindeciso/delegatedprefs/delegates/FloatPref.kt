@@ -1,6 +1,6 @@
 package com.github.mrindeciso.delegatedprefs.delegates
 
-import com.github.mrindeciso.delegatedprefs.`interface`.DelegatePrefInterface
+import com.github.mrindeciso.delegatedprefs.interfaces.DelegatePrefInterface
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

@@ -1,7 +1,7 @@
 package com.github.mrindeciso.delegatedprefs.delegates
 
-import com.github.mrindeciso.delegatedprefs.`interface`.DelegatePrefInterface
-import com.github.mrindeciso.delegatedprefs.`interface`.PreferenceSerializer
+import com.github.mrindeciso.delegatedprefs.interfaces.DelegatePrefInterface
+import com.github.mrindeciso.delegatedprefs.interfaces.PreferenceSerializer
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 

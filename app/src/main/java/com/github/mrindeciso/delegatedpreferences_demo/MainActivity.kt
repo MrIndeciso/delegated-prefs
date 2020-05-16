@@ -1,30 +1,20 @@
 package com.github.mrindeciso.delegatedpreferences_demo
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val preferenceClass = PreferenceClass(this)
-
-        setAge.setOnClickListener {
-            preferenceClass.age = age.text.toString().toIntOrNull() ?: 0
+        bttBasicDemo.setOnClickListener {
+            Intent(this, BasicDemoActivity::class.java).let {
+                startActivity(it)
+            }
         }
-        setKey.setOnClickListener {
-            preferenceClass.customKey = customKey.text.toString().toIntOrNull() ?: 1
-        }
-        setDefaultHigh.setOnClickListener {
-            preferenceClass.defaultHigh = defaultHigh.text.toString().toIntOrNull() ?: 1
-        }
-
-        age.setText(preferenceClass.age.toString())
-        customKey.setText(preferenceClass.customKey.toString())
-        defaultHigh.setText(preferenceClass.defaultHigh.toString())
     }
 
 }
