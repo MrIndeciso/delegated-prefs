@@ -1,3 +1,7 @@
+include ':delegatedprefs-livedata'
+include ':delegatedprefs-flow'
+include ':delegatedprefs-ui'
+include ':delegatedprefs-gson'
 rootProject.name='DelegatedPreferences'
 include ':app'
 include ':delegatedprefs'
