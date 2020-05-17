@@ -7,7 +7,8 @@ import kotlin.reflect.KProperty
 
 class SerializedPref<T>(
     private val serializer: PreferenceSerializer<T>,
-    private val key: String? = null
+    private val key: String? = null,
+    private val commitInsteadOfApplying: Boolean = false
 ) : ReadWriteProperty<DelegatePrefInterface, T> {
 
     override fun getValue(thisRef: DelegatePrefInterface, property: KProperty<*>): T {
@@ -17,7 +18,10 @@ class SerializedPref<T>(
 
     override fun setValue(thisRef: DelegatePrefInterface, property: KProperty<*>, value: T) {
         val nonNullKey = key ?: property.name
-        thisRef.preferences.edit().putString(nonNullKey, serializer.toString(value)).apply()
+        thisRef.preferences.edit().putString(nonNullKey, serializer.toString(value)).apply {
+            if (commitInsteadOfApplying) commit()
+            else apply()
+        }
     }
 
 }

@@ -16,11 +16,14 @@ import kotlin.reflect.KProperty
  * @property [type] the class type, needed because we can't do reflection without kotlin-reflect
  * @property [defaultValue] the default value of type [T]
  * @property [key] the item key if the name of the property isn't enough
+ * @property [commitInsteadOfApplying] commits the change instead of storing it in memory and
+ * handling it in background. Let it set to false if you don't know why you would need to change it
  */
 class pref<T : Any>(
     private val type: KClass<T>,
     private val defaultValue: T? = null,
-    private val key: String? = null
+    private val key: String? = null,
+    private val commitInsteadOfApplying: Boolean = false
 ) : ReadWriteProperty<DelegatePrefInterface, T> {
 
     override fun getValue(thisRef: DelegatePrefInterface, property: KProperty<*>): T {
@@ -67,7 +70,9 @@ class pref<T : Any>(
                     throw RuntimeException("Return type $type is not a primitive")
                 }
             }
-        }.apply()
+            if (commitInsteadOfApplying) commit()
+            else apply()
+        }
     }
 
 }

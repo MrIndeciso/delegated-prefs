@@ -6,7 +6,8 @@ import kotlin.reflect.KProperty
 
 class IntPref(
     private val defaultValue: Int = 0,
-    private val key: String? = null
+    private val key: String? = null,
+    private val commitInsteadOfApplying: Boolean = false
 ) : ReadWriteProperty<DelegatePrefInterface, Int> {
 
     override fun getValue(thisRef: DelegatePrefInterface, property: KProperty<*>): Int {
@@ -16,7 +17,10 @@ class IntPref(
 
     override fun setValue(thisRef: DelegatePrefInterface, property: KProperty<*>, value: Int) {
         val nonNullKey = key ?: property.name
-        thisRef.preferences.edit().putInt(nonNullKey, value).apply()
+        thisRef.preferences.edit().putInt(nonNullKey, value).apply {
+            if (commitInsteadOfApplying) commit()
+            else apply()
+        }
     }
 
 }
