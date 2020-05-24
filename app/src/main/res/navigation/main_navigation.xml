@@ -14,6 +14,12 @@
         <action
             android:id="@+id/action_homeFragment_to_cryptoDemoFragment"
             app:destination="@id/cryptoDemoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moshiDemoFragment"
+            app:destination="@id/moshiDemoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_gsonDemoFragment"
+            app:destination="@id/gsonDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/basicDemoFragment"
@@ -23,4 +29,12 @@
         android:id="@+id/cryptoDemoFragment"
         android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.CryptoDemoFragment"
         android:label="CryptoDemoFragment" />
+    <fragment
+        android:id="@+id/moshiDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.MoshiDemoFragment"
+        android:label="MoshiDemoFragment" />
+    <fragment
+        android:id="@+id/gsonDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.GsonDemoFragment"
+        android:label="GsonDemoFragment" />
 </navigation>

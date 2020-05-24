@@ -3,6 +3,7 @@ package com.github.mrindeciso.delegatedpreferences_demo.ui.preferenceClasses
 import android.content.Context
 import com.github.mrindeciso.delegatedprefs.delegates.*
 import com.github.mrindeciso.delegatedprefs.implementations.DelegatedPref
+import com.github.mrindeciso.delegatedprefs_moshi.moshiSerializerOf
 
 class BasicDemoPreference(ctx: Context) : DelegatedPref(ctx) {
 
@@ -17,5 +18,7 @@ class BasicDemoPreference(ctx: Context) : DelegatedPref(ctx) {
     var boolValue by BoolPref()
 
     var stringSetValue by StringSetPref()
+
+    var custom by SerializedPref(moshiSerializerOf<String>(""))
 
 }

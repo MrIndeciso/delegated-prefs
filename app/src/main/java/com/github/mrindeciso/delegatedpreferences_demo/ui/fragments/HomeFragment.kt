@@ -19,6 +19,14 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         bttCryptoDemo.setOnClickListener {
             findNavController().navigate(R.id.cryptoDemoFragment)
         }
+
+        bttGsonDemo.setOnClickListener {
+            findNavController().navigate(R.id.gsonDemoFragment)
+        }
+
+        bttMoshiDemo.setOnClickListener {
+            findNavController().navigate(R.id.moshiDemoFragment)
+        }
     }
 
 }

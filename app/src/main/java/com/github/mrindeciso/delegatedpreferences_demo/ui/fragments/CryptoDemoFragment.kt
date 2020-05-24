@@ -7,9 +7,9 @@ import androidx.fragment.app.Fragment
 import com.github.mrindeciso.delegatedpreferences_demo.R
 import com.github.mrindeciso.delegatedpreferences_demo.ui.preferenceClasses.CryptoDemoPreference
 import com.github.mrindeciso.delegatedpreferences_demo.utils.onKeyboardEnter
-import kotlinx.android.synthetic.main.fragment_basic_demo.*
+import kotlinx.android.synthetic.main.fragment_basic_crypto_demo.*
 
-class CryptoDemoFragment : Fragment(R.layout.fragment_basic_demo) {
+class CryptoDemoFragment : Fragment(R.layout.fragment_basic_crypto_demo) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
