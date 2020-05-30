@@ -7,7 +7,7 @@ import com.github.mrindeciso.delegatedprefs_gson.gsonSerializerOf
 
 class GsonDemoPreference(ctx: Context) : DelegatedPref(ctx) {
 
-    var userData by SerializedPref(gsonSerializerOf(GsonUserData()))
+    var userData by SerializedPref(gsonSerializerOf(GsonUserData()), key = "gsonUserData")
 
 }
 

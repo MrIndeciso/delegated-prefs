@@ -8,7 +8,7 @@ import com.squareup.moshi.JsonClass
 
 class MoshiDemoPreference(ctx: Context) : DelegatedPref(ctx) {
 
-    var userData by SerializedPref(moshiSerializerOf(MoshiUserData()))
+    var userData by SerializedPref(moshiSerializerOf(MoshiUserData()), key = "moshiUserData")
 
 }
 
