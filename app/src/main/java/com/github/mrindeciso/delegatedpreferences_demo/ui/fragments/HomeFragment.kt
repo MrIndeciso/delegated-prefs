@@ -27,6 +27,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         bttMoshiDemo.setOnClickListener {
             findNavController().navigate(R.id.moshiDemoFragment)
         }
+
+        bttEnumDemo.setOnClickListener {
+            findNavController().navigate(R.id.enumDemoFragment)
+        }
     }
 
 }

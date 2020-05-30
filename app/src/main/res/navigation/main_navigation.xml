@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_homeFragment_to_gsonDemoFragment"
             app:destination="@id/gsonDemoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_enumDemoFragment"
+            app:destination="@id/enumDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/basicDemoFragment"
@@ -37,4 +40,8 @@
         android:id="@+id/gsonDemoFragment"
         android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.GsonDemoFragment"
         android:label="GsonDemoFragment" />
+    <fragment
+        android:id="@+id/enumDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.EnumDemoFragment"
+        android:label="EnumDemoFragment" />
 </navigation>

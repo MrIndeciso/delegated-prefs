@@ -5,8 +5,7 @@ import com.squareup.moshi.Moshi
 
 inline fun <reified T> DelegatePrefInterface.moshiSerializerOf(
     defaultValue: T,
-    moshi: Moshi = Moshi.Builder()
-        .build()
+    moshi: Moshi = Moshi.Builder().build()
 ): MoshiSerializer<T> {
     return MoshiSerializer(
         moshi.adapter(T::class.java),

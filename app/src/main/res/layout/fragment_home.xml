@@ -69,8 +69,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home_bttui"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bttEnumDemo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bttMoshiDemo" />
+
+    <Button
+        android:id="@+id/bttEnumDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_bttenum"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bttUIDemo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

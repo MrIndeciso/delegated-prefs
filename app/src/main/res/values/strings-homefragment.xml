@@ -7,4 +7,5 @@
     <string name="home_bttlivedata">LiveData Demo</string>
     <string name="home_bttmoshi">Moshi Demo</string>
     <string name="home_bttui">UI Demo</string>
+    <string name="home_bttenum">Enum Demo</string>
 </resources>

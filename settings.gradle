@@ -1,3 +1,4 @@
+include ':delegatedprefs-enum'
 include ':delegatedprefs-livedata'
 include ':delegatedprefs-flow'
 include ':delegatedprefs-ui'
