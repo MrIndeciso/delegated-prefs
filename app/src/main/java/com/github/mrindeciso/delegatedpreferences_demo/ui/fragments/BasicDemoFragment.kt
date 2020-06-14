@@ -57,7 +57,7 @@ class BasicDemoFragment : Fragment(R.layout.fragment_basic_crypto_demo) {
             Toast.makeText(requireContext(), "Registered a String Set", Toast.LENGTH_SHORT).show()
         }
 
-        inputBoolean.setOnCheckedChangeListener { buttonView, isChecked ->
+        inputBoolean.setOnCheckedChangeListener { _, isChecked ->
             preferences.boolValue = isChecked
             Toast.makeText(requireContext(), "Registered a Boolean", Toast.LENGTH_SHORT).show()
         }
