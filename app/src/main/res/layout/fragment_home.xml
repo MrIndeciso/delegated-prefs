@@ -79,9 +79,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/home_bttenum"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bttAnnotationDemo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bttUIDemo" />
+
+    <Button
+        android:id="@+id/bttAnnotationDemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_bttannotation"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bttEnumDemo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

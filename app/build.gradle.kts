@@ -52,6 +52,7 @@ dependencies {
     implementation(project(":delegatedprefs-livedata"))
     implementation(project(":delegatedprefs-moshi"))
     implementation(project(":delegatedprefs-ui"))
+    implementation(project(":annotated-prefs-android"))
 
     implementation(project(":annotated-prefs"))
     ksp(project(":annotated-prefs"))

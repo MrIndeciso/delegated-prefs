@@ -1,3 +1,4 @@
+include(":annotated-prefs-android")
 pluginManagement {
     resolutionStrategy {
         eachPlugin {

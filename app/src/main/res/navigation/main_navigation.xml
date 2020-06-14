@@ -23,25 +23,32 @@
         <action
             android:id="@+id/action_homeFragment_to_enumDemoFragment"
             app:destination="@id/enumDemoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_annotationDemoFragment"
+            app:destination="@id/annotationDemoFragment" />
     </fragment>
     <fragment
         android:id="@+id/basicDemoFragment"
-        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.BasicDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.BasicDemoFragment"
         android:label="BasicDemoFragment" />
     <fragment
         android:id="@+id/cryptoDemoFragment"
-        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.CryptoDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.CryptoDemoFragment"
         android:label="CryptoDemoFragment" />
     <fragment
         android:id="@+id/moshiDemoFragment"
-        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.MoshiDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.MoshiDemoFragment"
         android:label="MoshiDemoFragment" />
     <fragment
         android:id="@+id/gsonDemoFragment"
-        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.GsonDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.GsonDemoFragment"
         android:label="GsonDemoFragment" />
     <fragment
         android:id="@+id/enumDemoFragment"
-        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.EnumDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.EnumDemoFragment"
         android:label="EnumDemoFragment" />
+    <fragment
+        android:id="@+id/annotationDemoFragment"
+        android:name="com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home.AnnotationDemoFragment"
+        android:label="AnnotationDemoFragment" />
 </navigation>

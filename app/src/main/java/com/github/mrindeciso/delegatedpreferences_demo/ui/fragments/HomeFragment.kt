@@ -31,6 +31,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         bttEnumDemo.setOnClickListener {
             findNavController().navigate(R.id.enumDemoFragment)
         }
+
+        bttAnnotationDemo.setOnClickListener {
+            findNavController().navigate(R.id.annotationDemoFragment)
+        }
     }
 
 }

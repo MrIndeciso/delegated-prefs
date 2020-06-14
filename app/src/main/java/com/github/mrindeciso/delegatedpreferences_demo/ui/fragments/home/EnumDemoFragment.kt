@@ -1,4 +1,4 @@
-package com.github.mrindeciso.delegatedpreferences_demo.ui.fragments
+package com.github.mrindeciso.delegatedpreferences_demo.ui.fragments.home
 
 import android.graphics.Color
 import androidx.fragment.app.Fragment
