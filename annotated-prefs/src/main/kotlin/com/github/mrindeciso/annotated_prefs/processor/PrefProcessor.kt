@@ -1,11 +1,10 @@
 package com.github.mrindeciso.annotated_prefs.processor
 
 import com.github.mrindeciso.annotated_prefs.annotations.PrefClass
-import com.github.mrindeciso.annotated_prefs.processor.visitor.PrefClassBuilder
-import org.jetbrains.kotlin.ksp.processing.CodeGenerator
-import org.jetbrains.kotlin.ksp.processing.Resolver
-import org.jetbrains.kotlin.ksp.processing.SymbolProcessor
-import org.jetbrains.kotlin.ksp.symbol.KSClassDeclaration
+import com.google.devtools.ksp.processing.CodeGenerator
+import com.google.devtools.ksp.processing.KSPLogger
+import com.google.devtools.ksp.processing.Resolver
+import com.google.devtools.ksp.processing.SymbolProcessor
 
 
 class PrefProcessor : SymbolProcessor {
@@ -19,7 +18,8 @@ class PrefProcessor : SymbolProcessor {
     override fun init(
         options: Map<String, String>,
         kotlinVersion: KotlinVersion,
-        codeGenerator: CodeGenerator
+        codeGenerator: CodeGenerator,
+        logger: KSPLogger
     ) {
         codeGen = codeGenerator
     }
@@ -27,8 +27,8 @@ class PrefProcessor : SymbolProcessor {
     override fun process(resolver: Resolver) {
         val annotatedClasses = resolver.getSymbolsWithAnnotation(PrefClass::class.java.name)
         println(annotatedClasses)
-        annotatedClasses.filterIsInstance<KSClassDeclaration>()
-            .forEach { it.accept(PrefClassBuilder(codeGen), Unit) }
+        /*annotatedClasses.filterIsInstance<KSClassDeclaration>()
+            .forEach { it.accept(PrefClassBuilder(codeGen), Unit) }*/
     }
 
 }
