@@ -4,9 +4,10 @@ pluginManagement {
         eachPlugin {
             when (requested.id.id) {
                 "kotlin-ksp",
+                "symbol-processing",
                 "org.jetbrains.kotlin.kotlin-ksp",
                 "org.jetbrains.kotlin.ksp" ->
-                    useModule("org.jetbrains.kotlin:kotlin-ksp:${requested.version}")
+                    useModule("com.google.devtools.ksp:symbol-processing:${requested.version}")
             }
         }
     }

@@ -3,7 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-    id("kotlin-ksp") version "1.4-M1-dev-experimental-20200610"
+    id("symbol-processing") version "1.4.10-dev-experimental-20201009"
 }
 
 android {
@@ -23,6 +23,7 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
         }
     }
+
     packagingOptions.exclude("META-INF/main.kotlin_module")
 }
 
