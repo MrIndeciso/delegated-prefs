@@ -4,6 +4,6 @@ annotation class PrefClass(
 
     val prefFileName: String = "",
 
-    val commitInsteadOfApplying: Boolean = false
+    val alwaysCommitInsteadOfApplying: Boolean = false
 
 )

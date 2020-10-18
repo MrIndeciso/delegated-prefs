@@ -3,16 +3,21 @@ package com.github.mrindeciso.annotated_prefs.fileModels
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSType
 
-internal data class AnnotatedFile(
+internal class AnnotatedFile {
 
-    var fileName: String? = null,
-    var packageName: String? = null,
+    var isValidClass: Boolean = false
 
-    var classKind: ClassKind? = null,
-    var className: String? = null,
+    var fileName: String? = null
+    var packageName: String? = null
 
-    var classType: KSType? = null,
+    var prefFileName: String? = "antonio"
+    var alwaysCommitInsteadOfApplying: Boolean = false
 
-    val properties: MutableList<AnnotatedProperty> = mutableListOf<AnnotatedProperty>(),
+    var classKind: ClassKind? = null
+    var className: String? = null
 
-    )
+    var classType: KSType? = null
+
+    val properties: MutableList<AnnotatedProperty> = mutableListOf()
+
+}

@@ -14,8 +14,8 @@ import com.squareup.kotlinpoet.*
 
 internal class PrefProcessor : SymbolProcessor {
 
-    lateinit var codeGen: CodeGenerator
-    lateinit var kspLogger: KSPLogger
+    private lateinit var codeGen: CodeGenerator
+    private lateinit var kspLogger: KSPLogger
 
     private val visitor = PreferenceVisitor()
 
@@ -36,11 +36,9 @@ internal class PrefProcessor : SymbolProcessor {
     override fun process(resolver: Resolver) {
         resolver
             .getAllFiles()
-            .filter { it.fileName.contains("AnnotatedPreference") }
-            .map {
-
-                val data = AnnotatedFile()
-                it.accept(visitor, data)
+            .map { AnnotatedFile().also { file -> it.accept(visitor, file) } }
+            .filter { it.isValidClass }
+            .map { data ->
 
                 val file = codeGen.createNewFile(data.packageName ?: "", "${data.fileName}Impl")
                     .bufferedWriter()
@@ -54,36 +52,49 @@ internal class PrefProcessor : SymbolProcessor {
                         "LongPref",
                         "BoolPref"
                     )
-                    .addType(TypeSpec.classBuilder("${data.className}Impl")
-                        .addSuperinterface(ClassName.bestGuess("${data.packageName}.${data.className}"))
-                        .superclass(ClassName.bestGuess("com.github.mrindeciso.delegatedprefs.implementations.DelegatedPref"))
-                        .addSuperclassConstructorParameter("context")
-                        .primaryConstructor(
-                            FunSpec
-                                .constructorBuilder()
-                                .addParameter(
-                                    ParameterSpec(
-                                        "context",
-                                        ClassName.bestGuess("android.content.Context")
-                                    )
-                                )
-                                .build()
-                        )
-                        .also { builder ->
-                            data.properties.forEach { property ->
-                                builder.addProperty(
-                                    PropertySpec.builder(
-                                        property.name,
-                                        property.type.typeName()
-                                    )
-                                        .addModifiers(KModifier.OVERRIDE)
-                                        .mutable(property.mutable)
-                                        .delegate(CodeBlock.of(getDelegate(property.type)))
-                                        .build()
-                                )
+                    .addType(
+                        TypeSpec.classBuilder("${data.className}Impl")
+                            .addSuperinterface(ClassName.bestGuess("${data.packageName}.${data.className}"))
+                            .superclass(ClassName.bestGuess("com.github.mrindeciso.delegatedprefs.implementations.DelegatedPref"))
+                            .addSuperclassConstructorParameter("context")
+                            .also { builder ->
+                                data.prefFileName?.let {
+                                    builder.addSuperclassConstructorParameter('"' + it + '"')
+                                }
                             }
-                        }
-                        .build())
+                            .primaryConstructor(
+                                FunSpec
+                                    .constructorBuilder()
+                                    .addParameter(
+                                        ParameterSpec(
+                                            "context",
+                                            ClassName.bestGuess("android.content.Context")
+                                        )
+                                    )
+                                    .build()
+                            )
+                            .also { builder ->
+                                data.properties.forEach { property ->
+                                    builder.addProperty(
+                                        PropertySpec.builder(
+                                            property.name,
+                                            property.type.typeName()
+                                        )
+                                            .addModifiers(KModifier.OVERRIDE)
+                                            .mutable(property.mutable)
+                                            .delegate(
+                                                CodeBlock.of(
+                                                    getDelegate(
+                                                        property.type,
+                                                        property.annotation?.key
+                                                    )
+                                                )
+                                            )
+                                            .build()
+                                    )
+                                }
+                            }
+                            .build())
                     .build()
                     .toString()
                     .let {
@@ -94,7 +105,7 @@ internal class PrefProcessor : SymbolProcessor {
             }
     }
 
-    private fun getDelegate(type: KSTypeReference) =
+    private fun getDelegate(type: KSTypeReference, key: String?) =
         when ((type.element as? KSClassifierReference)?.referencedName()?.split('.')?.last()) {
             "String" -> "StringPref()"
             "Int" -> "IntPref()"
@@ -102,6 +113,12 @@ internal class PrefProcessor : SymbolProcessor {
             "Long" -> "LongPref()"
             "Boolean" -> "BoolPref()"
             else -> "error"
+        }.let {
+            if (key == null) {
+                it
+            } else {
+                it.replace("()", "(key = \"$key\")")
+            }
         }
 
 }
